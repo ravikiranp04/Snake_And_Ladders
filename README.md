@@ -136,14 +136,23 @@ input.txt
 It doesn't contain the actual game logic. Instead, it prepares the required objects and delegates gameplay to `Board`.
 
 Input File Format:
+
 Line 1: Board Dimensions
+
 Line 2: Dice count
+
 Line 3: No of Snakes (S)
+
 Next S lines: Snakes Mappings( Head -> Tail) i.e Player will move from Snake head -> Snake Tail
+
 Line 4: No of Ladders (L)
+
 Next L lines: Snakes Mappings( bottom -> top) i.e Player will move from Ladder Bottom -> Ladder top
+
 Line 5: No of Players (P)
+
 Next P Lines: Player Names
+
 ---
 
 # 2. `Board.java`
@@ -369,7 +378,7 @@ private boolean winStatus;
 | `currentCell` | Current position on the board |
 | `winStatus`   | Whether the player has won    |
 
-The player starts at cell `0` and initially has a `false` winning status.
+The player starts at cell `1` and initially has a `false` winning status.
 
 ---
 

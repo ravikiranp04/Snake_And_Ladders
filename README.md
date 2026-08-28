@@ -838,84 +838,6 @@ and the player wins after reaching the final cell.
 
 ---
 
-# 📝 Logging
-
-The project uses Java's built-in:
-
-```java
-java.util.logging.Logger
-```
-
-to record important events such as:
-
-* Dice rolls
-* Player movements
-* Snake encounters
-* Ladder encounters
-* Invalid input
-* Winner information
-* Game completion
-
-For example:
-
-```text
-Rolling Dice: Gaurav
-Gaurav rolled a 6 and moved from 56 to 62
-Snake: Gaurav dropped to cell 5
-```
-
-This makes it easier to follow the game's execution from the console/log output.
-
----
-
-# 🧪 Testing
-
-The Maven project includes support for **JUnit 5** testing.
-
-Tests can be executed using:
-
-```bash
-mvn test
-```
-
-Test cases can be added under:
-
-```text
-src/test/java/org/example/
-```
-
-Potential areas for unit testing include:
-
-* Dice generation
-* Player movement
-* Snake/ladder lookup
-* Board boundary conditions
-* Winning condition
-* Multiple players
-* Consecutive six behavior
-
----
-
-# 🔧 Possible Improvements
-
-Some areas that could be improved in future versions:
-
-* Add comprehensive unit tests
-* Improve input validation
-* Separate input parsing from `App`
-* Make `Board` constructor public if external construction is required
-* Introduce dedicated `Snake` and `Ladder` classes
-* Replace the combined snake/ladder map with stronger domain modeling
-* Add a configurable input-file path
-* Improve logging configuration
-* Add a GUI
-* Add support for multiple game modes
-* Add automated game simulations
-* Add dependency injection for easier testing
-* Improve handling of multiple dice
-
----
-
 # 📚 Learning Objectives
 
 This project is useful for understanding:
@@ -943,24 +865,6 @@ This project is useful for understanding:
 GitHub: [@ravikiranp04](https://github.com/ravikiranp04)
 
 ---
-
-## ⭐ Project Overview
-
-```text
-                Snake & Ladders
-                       │
-                       ▼
-                    App
-                       │
-                       ▼
-                   Board
-                  /  |   \
-                 /   |    \
-                ▼    ▼     ▼
-             Dice Player  Game Data
-                         │
-                         ▼
-                  Snakes & Ladders
-```
+`
 
 The project keeps the game engine separate from player state, dice behavior, and snake/ladder configuration, making it a useful example of designing a small Java application using object-oriented principles.

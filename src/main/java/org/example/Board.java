@@ -21,16 +21,19 @@ public class Board {
 
         this.playersQueue  = new LinkedList<>();
         for(String name: playerNames){
-            playersQueue.offer(new Player(name,1));
+            playersQueue.offer(new Player(name,0));
         }
     }
     void play(){
         while(!playersQueue.isEmpty()){
             Player currentPlayer = playersQueue.poll();
             Integer currCell = currentPlayer.getCurrentCell();
+            log.info("-------------------------------------------------------");
+
             log.info("Rolling Dice: "+currentPlayer.getName());
             //rolling dice
-            Integer newMovement = dice.rollDice();
+            Integer remainingCells = totalCells-currCell;
+            Integer newMovement = dice.rollDice(remainingCells);
 
             //computing new cell
             Integer newCell = currCell+ newMovement;
@@ -45,12 +48,12 @@ public class Board {
             // If next cell greater than total cells or player looses turn due to 3 consecutive 6's
             // Roll dice returns zero, if three consecutive 6's occured
             if(newCell==currCell || newCell>totalCells){
-                log.info(currentPlayer.getName()+" rolled a "+ newMovement+" and moved from "+ currCell+"to "+newCell);
+                log.info(currentPlayer.getName()+" rolled a "+ newMovement+" and moved from "+ currCell+" to "+currCell);
                 playersQueue.offer(currentPlayer);
                 continue;
             }
 
-            log.info(currentPlayer.getName()+" rolled a "+ newMovement+" and moved from "+ currCell+"to "+newCell);
+            log.info(currentPlayer.getName()+" rolled a "+ newMovement+" and moved from "+ currCell+" to "+newCell);
 
             //Checking for Snakes and Ladders teleporting (If -1, then no snakes or ladders exist at that cell)
             Integer snakeOrLadderCell = snakesAndLaddersData.checkSnakeOrLadder(newCell);
@@ -64,7 +67,6 @@ public class Board {
                 }
                 newCell=snakeOrLadderCell;
                 snakeOrLadderCell = snakesAndLaddersData.checkSnakeOrLadder(newCell);
-                log.info("-------------------------------------------------------");
             }
 
             currentPlayer.moveToCell(newCell);

@@ -5,9 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 import java.util.logging.Logger;
 
-/**
- * Hello world!
- */
+
 public class App {
     public static void main(String[] args) {
         Logger log = Logger.getLogger(App.class.getName());
@@ -63,7 +61,7 @@ public class App {
                     log.info("Unsupported Ladder coordinates: "+top +" <= "+bottom);
                     return;
                 }
-                currSnakesCount++;
+                currLaddersCount++;
                 snakesAndLaddersMap.put(bottom,top);
             }
 
@@ -76,7 +74,7 @@ public class App {
                 log.info("Empty Players Count");
                 return;
             }
-
+            fileScanner.nextLine();
             //Player Names Input
             List<String> playerNames = new ArrayList<>();
             Integer currPlayers=0;

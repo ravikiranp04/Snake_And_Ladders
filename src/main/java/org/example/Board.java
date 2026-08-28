@@ -21,7 +21,7 @@ public class Board {
 
         this.playersQueue  = new LinkedList<>();
         for(String name: playerNames){
-            playersQueue.offer(new Player(name,0));
+            playersQueue.offer(new Player(name,1));
         }
     }
     void play(){

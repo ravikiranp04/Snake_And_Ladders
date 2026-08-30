@@ -13,6 +13,7 @@ public class SnakesAndLaddersData {
         return snakesAndLaddersMap;
     }
 
+    // Checks weather it is a snake or ladder and returns the teleported new cell. Else, returns -1.
     Integer checkSnakeOrLadder(Integer currCell){
         if(snakesAndLaddersMap.containsKey(currCell)){
             return snakesAndLaddersMap.get(currCell);

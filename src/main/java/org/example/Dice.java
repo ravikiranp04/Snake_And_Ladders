@@ -18,7 +18,7 @@ public class Dice {
     }
 
     Integer rollDice(Integer remainingCells){
-        Integer total=0, turns=0;
+        Integer movableCells=0, turns=0;
 
         //Single dice (Single 6 gives another turn, 3 consecutive 6's loses turn and returns zero)
         if(diceCount==1){
@@ -26,11 +26,13 @@ public class Dice {
                 Integer randNum = random.nextInt(6)+1;
                 log.info("Rolled a "+randNum);
 
-                // If the current roll crosses total cells, then the player loses turn and moves the gained steps.
+                // If the current roll crosses movableCells cells, then the player loses turn and moves the gained steps.
                 if(randNum>remainingCells){
-                    return total;
+                    return movableCells;
                 }
-                total+=randNum;
+
+
+                movableCells+=randNum;
                 remainingCells-=randNum;
 
                 // If the current roll is not 6, then the player loses turn and moves the gained steps.
@@ -45,13 +47,13 @@ public class Dice {
                 return 0;
             }
         }
-        //Multiple dice -> Adds up the total sum and returns
+        //Multiple dice -> Adds up the movableCells sum and returns
         else{
             while(turns<diceCount){
                 Integer randNum = random.nextInt(6)+1;
-                total+=randNum;
+                movableCells+=randNum;
             }
         }
-        return total;
+        return movableCells;
     }
 }

@@ -91,9 +91,12 @@ public class App {
             }
 
             //Playing on a board
-            Board board = new Board(diceCount,boardDimensions, snakesAndLaddersMap, playerNames);
-            board.play();
+            Board board1 = new Board(diceCount,boardDimensions, snakesAndLaddersMap, playerNames);
+            board1.play();
 
+
+            Board board2 = new Board(diceCount,boardDimensions, snakesAndLaddersMap, playerNames);
+            board2.play();
             log.info("Game Finished");
 
         } catch (FileNotFoundException e){

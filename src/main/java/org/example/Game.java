@@ -1,28 +1,30 @@
 package org.example;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
+import java.util.*;
 import java.util.logging.Logger;
 
-public class Board {
+public class Game {
 
-    private static final Logger log = Logger.getLogger(Board.class.getName());
+    private static final Logger log = Logger.getLogger(Game.class.getName());
 
+    private String gameId;
     private Integer totalCells;
     private Dice dice;
     private SnakesAndLaddersData snakesAndLaddersData;
     private Queue<Player> playersQueue;
-    Board(Integer diceCount, Integer boardDimensions, Map<Integer,Integer> snakesAndLaddersMap, List<String> playerNames){
+
+    Game(Integer diceCount, Integer boardDimensions, Map<Integer,Integer> snakesAndLaddersMap, List<String> playerNames){
         this.dice=new Dice(diceCount);
         this.snakesAndLaddersData  = new SnakesAndLaddersData(snakesAndLaddersMap);
         this.totalCells = boardDimensions*boardDimensions;
-
+        this.gameId = UUID.randomUUID().toString();
         this.playersQueue  = new LinkedList<>();
         for(String name: playerNames){
             playersQueue.offer(new Player(name,1));
         }
+    }
+    public String getGameId() {
+        return gameId;
     }
     void play(){
         while(!playersQueue.isEmpty()){

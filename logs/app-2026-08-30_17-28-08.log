@@ -1,0 +1,864 @@
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 1 and moved from 1 to 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Ladder: Gaurav jumped to cell 37
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 3 and moved from 1 to 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 4 and moved from 37 to 41
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Snake: Gaurav dropped to cell 20
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 9 and moved from 4 to 13
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 1 and moved from 20 to 21
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 3 and moved from 13 to 16
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 11 and moved from 21 to 32
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 5 and moved from 16 to 21
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 8 and moved from 32 to 40
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 4 and moved from 21 to 25
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 5 and moved from 40 to 45
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 4 and moved from 25 to 29
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 9 and moved from 45 to 54
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 8 and moved from 29 to 37
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 4 and moved from 54 to 58
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 11 and moved from 37 to 48
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 2 and moved from 58 to 60
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 11 and moved from 48 to 59
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 3 and moved from 60 to 63
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 5 and moved from 59 to 64
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 3 and moved from 63 to 66
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 2 and moved from 64 to 66
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 4 and moved from 66 to 70
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 4 and moved from 66 to 70
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 3 and moved from 70 to 73
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 8 and moved from 70 to 78
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 2 and moved from 73 to 75
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 3 and moved from 78 to 81
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Ladder: Sagar jumped to cell 100
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 10 and moved from 75 to 85
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar wins the game
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 5 and moved from 85 to 90
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 1 and moved from 90 to 91
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 5 and moved from 91 to 96
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 3 and moved from 96 to 99
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav wins the game
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 4 and moved from 1 to 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 4 and moved from 1 to 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 1 and moved from 5 to 6
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 5 and moved from 5 to 10
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Ladder: Sagar jumped to cell 32
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 13 and moved from 6 to 19
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 7 and moved from 32 to 39
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 9 and moved from 19 to 28
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 1 and moved from 39 to 40
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 2 and moved from 28 to 30
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 9 and moved from 40 to 49
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Snake: Sagar dropped to cell 9
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 10 and moved from 30 to 40
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 5 and moved from 9 to 14
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 5 and moved from 40 to 45
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 5 and moved from 14 to 19
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 4 and moved from 45 to 49
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Snake: Gaurav dropped to cell 9
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 2 and moved from 19 to 21
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 1 and moved from 9 to 10
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Ladder: Gaurav jumped to cell 32
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 9 and moved from 21 to 30
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 5 and moved from 32 to 37
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 11 and moved from 30 to 41
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Snake: Sagar dropped to cell 20
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 4 and moved from 37 to 41
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Snake: Gaurav dropped to cell 20
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 1 and moved from 20 to 21
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 4 and moved from 20 to 24
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 8 and moved from 21 to 29
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 3 and moved from 24 to 27
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Ladder: Gaurav jumped to cell 46
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 5 and moved from 29 to 34
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 2 and moved from 46 to 48
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 2 and moved from 34 to 36
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 5 and moved from 48 to 53
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 13 and moved from 36 to 49
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Snake: Sagar dropped to cell 9
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 3 and moved from 53 to 56
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Snake: Gaurav dropped to cell 53
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 2 and moved from 9 to 11
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 2 and moved from 53 to 55
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 5 and moved from 11 to 16
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 1 and moved from 55 to 56
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Snake: Gaurav dropped to cell 53
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 3 and moved from 16 to 19
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 2 and moved from 53 to 55
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 3 and moved from 19 to 22
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 1 and moved from 55 to 56
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Snake: Gaurav dropped to cell 53
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 2 and moved from 22 to 24
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 4 and moved from 53 to 57
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 5 and moved from 24 to 29
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 4 and moved from 57 to 61
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Ladder: Gaurav jumped to cell 79
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 2 and moved from 29 to 31
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 1 and moved from 79 to 80
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 1 and moved from 31 to 32
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav rolled a 1 and moved from 80 to 81
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Ladder: Gaurav jumped to cell 100
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 5 and moved from 32 to 37
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Gaurav
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Gaurav wins the game
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 15 and moved from 37 to 52
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 5 and moved from 52 to 57
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 4 and moved from 57 to 61
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Ladder: Sagar jumped to cell 79
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 3 and moved from 79 to 82
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 4 and moved from 82 to 86
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 4 and moved from 86 to 90
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 4
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 4 and moved from 90 to 94
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 2
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 2 and moved from 94 to 96
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 3
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 3 and moved from 96 to 99
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 0 and moved from 99 to 99
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 5
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 0 and moved from 99 to 99
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 0 and moved from 99 to 99
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 6
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar rolled a 0 and moved from 99 to 99
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: -------------------------------------------------------
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Rolling Dice: Sagar
+Aug 30, 2026 5:28:08 PM org.example.Dice rollDice
+INFO: Rolled a 1
+Aug 30, 2026 5:28:08 PM org.example.Game play
+INFO: Sagar wins the game
+Aug 30, 2026 5:28:08 PM org.example.App main
+INFO: Game Finished

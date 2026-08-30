@@ -96,7 +96,7 @@ It contains the `main()` method and is responsible for:
 2. Validating the input
 3. Creating the snakes and ladders mapping
 4. Reading player information
-5. Creating the `Board`
+5. Creating the `Game`
 6. Starting the game
 
 The application starts from:
@@ -105,7 +105,7 @@ The application starts from:
 public static void main(String[] args)
 ```
 
-`App` reads the board dimensions, dice count, snakes, ladders, number of players, and player names before creating the `Board` object.
+`App` reads the board dimensions, dice count, snakes, ladders, number of players, and player names before creating the `Game` object.
 
 ### Important responsibilities
 
@@ -133,7 +133,7 @@ input.txt
 
 `App` acts as the **composition/root layer** of the application.
 
-It doesn't contain the actual game logic. Instead, it prepares the required objects and delegates gameplay to `Board`.
+It doesn't contain the actual game logic. Instead, it prepares the required objects and delegates gameplay to `Game`.
 
 Input File Format:
 
@@ -159,7 +159,7 @@ Next P Lines: Player Names
 
 ### Responsibility
 
-`Board` is the **main game engine**.
+`Game` is the **main game engine**.
 
 It controls the actual gameplay and coordinates:
 
@@ -424,7 +424,7 @@ Checks whether the player has won.
 
 ## Why `Player` is a Separate Class
 
-Instead of storing player information directly inside `Board`, the player state is encapsulated in its own object.
+Instead of storing player information directly inside `Game`, the player state is encapsulated in its own object.
 
 This follows the OOP principle of **encapsulation**.
 
@@ -435,7 +435,7 @@ Player
  └── winStatus
 ```
 
-The `Board` is responsible for the game, while `Player` is responsible for maintaining player state.
+The `Game` is responsible for the game, while `Player` is responsible for maintaining player state.
 
 ---
 
@@ -514,7 +514,7 @@ If no snake or ladder exists, it returns:
 -1
 ```
 
-This allows `Board` to determine whether the player needs to be moved again.
+This allows `Game` to determine whether the player needs to be moved again.
 
 ---
 
@@ -703,14 +703,14 @@ Each class has a relatively focused responsibility:
 | Class                  | Responsibility                      |
 | ---------------------- | ----------------------------------- |
 | `App`                  | Application startup & input parsing |
-| `Board`                | Game orchestration                  |
+| `Game`                | Game orchestration                  |
 | `Dice`                 | Dice rolling                        |
 | `Player`               | Player state                        |
 | `SnakesAndLaddersData` | Snake/ladder mapping                |
 
 ### 3. Composition
 
-`Board` contains the objects it needs to run the game:
+`Game` contains the objects it needs to run the game:
 
 ```java
 private Dice dice;

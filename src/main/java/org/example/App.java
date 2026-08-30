@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 
 public class App {
     public static void main(String[] args) {
+        LoggerConfig.configure();
         Logger log = Logger.getLogger(App.class.getName());
         Map<Integer,Integer> snakesAndLaddersMap = new HashMap<>();
         String inputFileName = "src/main/java/org/example/input.txt";
@@ -91,12 +92,12 @@ public class App {
             }
 
             //Playing on a board
-            Board board1 = new Board(diceCount,boardDimensions, snakesAndLaddersMap, playerNames);
-            board1.play();
+            Game game1 = new Game(diceCount,boardDimensions, snakesAndLaddersMap, playerNames);
+            game1.play();
 
 
-            Board board2 = new Board(diceCount,boardDimensions, snakesAndLaddersMap, playerNames);
-            board2.play();
+            Game game2 = new Game(diceCount,boardDimensions, snakesAndLaddersMap, playerNames);
+            game2.play();
             log.info("Game Finished");
 
         } catch (FileNotFoundException e){

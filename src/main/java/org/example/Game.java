@@ -5,14 +5,13 @@ import java.util.logging.Logger;
 
 public class Game {
 
-    private static final Logger log = Logger.getLogger(Game.class.getName());
 
     private String gameId;
     private Integer totalCells;
     private Dice dice;
     private SnakesAndLaddersData snakesAndLaddersData;
     private Queue<Player> playersQueue;
-
+    private final Logger log;
     Game(GameConfig gameConfig){
         Integer diceCount = gameConfig.getDiceCount();
         Integer boardDimensions = gameConfig.getBoardDimensions();
@@ -20,8 +19,8 @@ public class Game {
         this.snakesAndLaddersData  = new SnakesAndLaddersData(gameConfig.getSnakesAndLaddersMap());
         this.totalCells = boardDimensions*boardDimensions;
         this.gameId = UUID.randomUUID().toString();
+        this.log=LoggerConfig.configure(this.gameId);
         this.playersQueue  = new LinkedList<>();
-        LoggerConfig.configure(this.gameId);
         for(String name: gameConfig.getPlayerNames()){
             playersQueue.offer(new Player(name,1));
         }

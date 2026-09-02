@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
@@ -14,7 +15,7 @@ public class App {
     public static void main(String[] args) throws InterruptedException {
         String srcInputFolder = "src/main/java/org/example/";
         String[] inputFiles = {"input1.txt","input2.txt","input3.txt","input4.txt","input5.txt"};
-        Integer gameCount=15, fileIdx=0, inputFilesCount=5;
+        Integer gameCount=2, fileIdx=0, inputFilesCount=5;
 
         AtomicInteger started = new AtomicInteger(0);
         AtomicInteger finished = new AtomicInteger(0);
@@ -52,11 +53,11 @@ public class App {
             started.incrementAndGet();
             game.play();
             finished.incrementAndGet();
-        }catch(InterruptedException e) {
+        } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            log.warning("Game-"+ gameNumber + " thread interrupted.");
+            log.warning("Game-" + gameNumber + " interrupted.");
         } catch (Exception e) {
-            log.warning("Game-" + gameNumber + " simulation failed: " + e.getMessage());
+            log.log(Level.SEVERE, "Game-" + gameNumber + " simulation failed",e);
         }
     }
 }

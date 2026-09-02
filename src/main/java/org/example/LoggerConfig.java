@@ -13,36 +13,38 @@ import java.util.logging.SimpleFormatter;
 
 public class LoggerConfig {
 
-    private static FileHandler fileHandler;
 
-    public static void configure(String gameId) {
+    public static Logger configure(String gameId) {
 
         try {
-            Path logDirectory = Paths.get("logs/sept1/");
-            Files.createDirectories(logDirectory);
 
             String date = LocalDate.now()
                     .format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            Path logDirectory = Paths.get("logs",date);
+            Files.createDirectories(logDirectory);
 
-            String logFile = "logs" + date + "_" + gameId + ".log";
+            Path logPath = logDirectory.resolve(
+                    date + "_" + gameId + ".log"
+            );
 
-            Logger rootLogger = Logger.getLogger("");
+            Logger logger = Logger.getLogger("Game-" + gameId);
 
-            if (fileHandler != null) {
-                rootLogger.removeHandler(fileHandler);
-                fileHandler.close();
-            }
+            logger.setUseParentHandlers(false);
+            logger.setLevel(Level.INFO);
 
-            fileHandler = new FileHandler(logFile, false);
+            FileHandler fileHandler =
+                    new FileHandler(logPath.toString(), false);
+
             fileHandler.setFormatter(new SimpleFormatter());
 
-            rootLogger.addHandler(fileHandler);
-            rootLogger.setLevel(Level.INFO);
-
+            logger.addHandler(fileHandler);
+            return logger;
         } catch (IOException e) {
-            System.err.println(
-                    "Failed to configure logging: " + e.getMessage()
+            throw new RuntimeException(
+                    "Failed to configure logging for Game-" + gameId,
+                    e
             );
         }
+
     }
 }

@@ -52,6 +52,10 @@ public class Dice {
             while(turns<diceCount){
                 Integer randNum = random.nextInt(6)+1;
                 movableCells+=randNum;
+                turns++;
+            }
+            if(movableCells>remainingCells){
+                movableCells=0;
             }
         }
         return movableCells;

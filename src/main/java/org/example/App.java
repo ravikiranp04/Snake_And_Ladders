@@ -15,7 +15,7 @@ public class App {
     public static void main(String[] args) throws InterruptedException {
         String srcInputFolder = "src/main/java/org/example/";
         String[] inputFiles = {"input1.txt","input2.txt","input3.txt","input4.txt","input5.txt"};
-        Integer gameCount=2, fileIdx=0, inputFilesCount=5;
+        Integer gameCount=20, fileIdx=0, inputFilesCount=5;
 
         AtomicInteger started = new AtomicInteger(0);
         AtomicInteger finished = new AtomicInteger(0);

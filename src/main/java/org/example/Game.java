@@ -13,20 +13,23 @@ public class Game {
     private SnakesAndLaddersData snakesAndLaddersData;
     private Queue<Player> playersQueue;
 
-    Game(Integer diceCount, Integer boardDimensions, Map<Integer,Integer> snakesAndLaddersMap, List<String> playerNames){
-        this.dice=new Dice(diceCount);
-        this.snakesAndLaddersData  = new SnakesAndLaddersData(snakesAndLaddersMap);
+    Game(GameConfig gameConfig){
+        Integer diceCount = gameConfig.getDiceCount();
+        Integer boardDimensions = gameConfig.getBoardDimensions();
+        this.dice= new Dice(diceCount);
+        this.snakesAndLaddersData  = new SnakesAndLaddersData(gameConfig.getSnakesAndLaddersMap());
         this.totalCells = boardDimensions*boardDimensions;
         this.gameId = UUID.randomUUID().toString();
         this.playersQueue  = new LinkedList<>();
-        for(String name: playerNames){
+        LoggerConfig.configure(this.gameId);
+        for(String name: gameConfig.getPlayerNames()){
             playersQueue.offer(new Player(name,1));
         }
     }
     public String getGameId() {
         return gameId;
     }
-    void play(){
+    void play() throws InterruptedException{
         while(!playersQueue.isEmpty()){
             Player currentPlayer = playersQueue.poll();
             Integer currCell = currentPlayer.getCurrentCell();
@@ -73,6 +76,7 @@ public class Game {
 
             currentPlayer.moveToCell(newCell);
             playersQueue.offer(currentPlayer);
+
         }
     }
 }

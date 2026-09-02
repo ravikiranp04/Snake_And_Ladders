@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -13,38 +13,36 @@ import java.util.logging.SimpleFormatter;
 
 public class LoggerConfig {
 
-    private static boolean configured = false;
+    private static FileHandler fileHandler;
 
-    public static void configure() {
-
-        if (configured) {
-            return;
-        }
+    public static void configure(String gameId) {
 
         try {
-            Path logDirectory = Paths.get("logs");
+            Path logDirectory = Paths.get("logs/sept1/");
             Files.createDirectories(logDirectory);
 
-            String timestamp = LocalDateTime.now()
-                    .format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
+            String date = LocalDate.now()
+                    .format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-            String logFile = "logs/app-" + timestamp + ".log";
+            String logFile = "logs" + date + "_" + gameId + ".log";
 
             Logger rootLogger = Logger.getLogger("");
 
-            FileHandler fileHandler =
-                    new FileHandler(logFile, false);
+            if (fileHandler != null) {
+                rootLogger.removeHandler(fileHandler);
+                fileHandler.close();
+            }
 
+            fileHandler = new FileHandler(logFile, false);
             fileHandler.setFormatter(new SimpleFormatter());
 
             rootLogger.addHandler(fileHandler);
             rootLogger.setLevel(Level.INFO);
 
-            configured = true;
-
         } catch (IOException e) {
-            System.err.println("Failed to configure logging: "
-                    + e.getMessage());
+            System.err.println(
+                    "Failed to configure logging: " + e.getMessage()
+            );
         }
     }
 }

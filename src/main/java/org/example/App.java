@@ -3,105 +3,60 @@ package org.example;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
 
 public class App {
-    public static void main(String[] args) {
-        LoggerConfig.configure();
-        Logger log = Logger.getLogger(App.class.getName());
-        Map<Integer,Integer> snakesAndLaddersMap = new HashMap<>();
-        String inputFileName = "src/main/java/org/example/input.txt";
-        File inputFile = new File(inputFileName);
-        try(Scanner fileScanner = new Scanner(inputFile)){
-            Integer diceCount , boardDimensions;
-            // Input for board Dimension
-            if(fileScanner.hasNextInt()){
-                boardDimensions= fileScanner.nextInt();
-            }
-            else{
-                log.info("Empty Board Dimensions");
-                return;
-            }
-            //Input for Dice count
-            if(fileScanner.hasNextInt()){
-                diceCount= fileScanner.nextInt();
-            }
-            else{
-                log.info("Empty Dice Count");
-                return;
-            }
+    private static final Logger log = Logger.getLogger(App.class.getName());
 
-            //Checking Snakes Data
-            Integer snakesCount=0;
-            if(fileScanner.hasNextInt()){
-                snakesCount= fileScanner.nextInt();
-            }
-            Integer currSnakesCount =0;
-            while(currSnakesCount<snakesCount && fileScanner.hasNextInt()){
-                int head = fileScanner.nextInt();
-                int tail = fileScanner.nextInt();
-                if(head<=tail){
-                    log.info("Unsupported Snakes coordinates: "+head +" <= "+tail);
-                    return;
-                }
-                currSnakesCount++;
-                snakesAndLaddersMap.put(head,tail);
-            }
+    public static void main(String[] args) throws InterruptedException {
+        String srcInputFolder = "src/main/java/org/example/";
+        String[] inputFiles = {"input1.txt","input2.txt","input3.txt","input4.txt","input5.txt"};
+        Integer gameCount=15, fileIdx=0, inputFilesCount=5;
 
-            //Checking Ladders Data
-            Integer laddersCount =0;
-            if(fileScanner.hasNextInt()){
-                laddersCount= fileScanner.nextInt();
-            }
-            Integer currLaddersCount =0;
-            while(currLaddersCount<laddersCount && fileScanner.hasNextInt()){
-                Integer bottom = fileScanner.nextInt();
-                Integer top = fileScanner.nextInt();
-                if(top<=bottom){
-                    log.info("Unsupported Ladder coordinates: "+top +" <= "+bottom);
-                    return;
-                }
-                currLaddersCount++;
-                snakesAndLaddersMap.put(bottom,top);
-            }
-
-            // Players Count Input
-            Integer playersCount=0;
-            if(fileScanner.hasNextInt()){
-                playersCount= fileScanner.nextInt();
-            }
-            else{
-                log.info("Empty Players Count");
-                return;
-            }
-            fileScanner.nextLine();
-            //Player Names Input
-            List<String> playerNames = new ArrayList<>();
-            Integer currPlayers=0;
-
-            //Player names input
-            while(currPlayers<playersCount && fileScanner.hasNextLine()){
-                playerNames.add(fileScanner.nextLine());
-                currPlayers++;
-            }
-
-            if(currPlayers<playersCount){
-                log.info("Insufficient Players Data");
-                return;
-            }
-
-            //Playing on a board
-            Game game1 = new Game(diceCount,boardDimensions, snakesAndLaddersMap, playerNames);
-            game1.play();
+        AtomicInteger started = new AtomicInteger(0);
+        AtomicInteger finished = new AtomicInteger(0);
 
 
-            Game game2 = new Game(diceCount,boardDimensions, snakesAndLaddersMap, playerNames);
-            game2.play();
-            log.info("Game Finished");
+        ExecutorService executor = Executors.newFixedThreadPool(100);
+        List<Future<?>> futures = new ArrayList<>();
+        for(int i=1;i<=gameCount;i++){
+            String inputFile = srcInputFolder+inputFiles[fileIdx];
+            fileIdx=(fileIdx+1)%inputFilesCount;
+            Integer gameNumber = i;
+            futures.add(executor.submit(()-> simulateGame(inputFile,gameNumber,started,finished)));
+        }
 
-        } catch (FileNotFoundException e){
-            log.info("File Not found");
+        for (Future<?> f : futures) {
+            try {
+                f.get();
+            } catch (ExecutionException e) {
+                log.warning("A Game simulation thread failed: " + e.getCause());
+            }
+        }
+
+        executor.shutdown();
+        executor.awaitTermination(30, TimeUnit.SECONDS);
+
+        log.info("=========================================");
+        log.info("Simulation complete. Games Started: " + started.get() + ", finished: " + finished.get());
+
+    }
+
+    public static void simulateGame(String inputFile, Integer gameNumber, AtomicInteger started, AtomicInteger finished){
+        try{
+            GameConfig gameConfig = new GameConfig(inputFile);
+            Game game = new Game(gameConfig);
+            started.incrementAndGet();
+            game.play();
+            finished.incrementAndGet();
+        }catch(InterruptedException e) {
+            Thread.currentThread().interrupt();
+            log.warning("Game-"+ gameNumber + " thread interrupted.");
+        } catch (Exception e) {
+            log.warning("Game-" + gameNumber + " simulation failed: " + e.getMessage());
         }
     }
 }

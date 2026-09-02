@@ -44,16 +44,10 @@ public class Game {
 
             log.info(currentPlayer.getName()+" rolled a "+ newMovement+" and moved from "+ currCell+" to "+newCell);
 
-            //Player wins game
-            if(newCell==totalCells){
-                log.info(currentPlayer.getName()+" wins the game");
-                currentPlayer.moveToCell(newCell);
-                currentPlayer.setWinStatus(true);
-                break;
-            }
+
             // If next cell greater than total cells or player looses turn due to 3 consecutive 6's
             // Roll dice returns zero, if three consecutive 6's occured
-            if(newCell==currCell){
+            if(newCell.equals(currCell)){
 //                log.info(currentPlayer.getName()+" rolled a "+ newMovement+" and moved from "+ currCell+" to "+currCell);
                 playersQueue.offer(currentPlayer);
                 continue;
@@ -76,6 +70,13 @@ public class Game {
             }
 
             currentPlayer.moveToCell(newCell);
+
+            //Player wins game
+            if(newCell.equals(totalCells)){
+                log.info(currentPlayer.getName()+" wins the game");
+                currentPlayer.setWinStatus(true);
+                break;
+            }
             playersQueue.offer(currentPlayer);
 
         }

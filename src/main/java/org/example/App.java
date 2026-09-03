@@ -1,7 +1,5 @@
 package org.example;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -11,6 +9,7 @@ import java.util.logging.Logger;
 
 public class App {
     private static final Logger log = Logger.getLogger(App.class.getName());
+    private static final GameFactor gameManager = new GameFactor();
 
     public static void main(String[] args) throws InterruptedException {
         String srcInputFolder = "src/main/java/org/example/";
@@ -49,7 +48,7 @@ public class App {
     public static void simulateGame(String inputFile, Integer gameNumber, AtomicInteger started, AtomicInteger finished){
         try{
             GameConfig gameConfig = new GameConfig(inputFile);
-            Game game = new Game(gameConfig);
+            Game game = gameManager.createGame(gameConfig);
             started.incrementAndGet();
             game.play();
             finished.incrementAndGet();

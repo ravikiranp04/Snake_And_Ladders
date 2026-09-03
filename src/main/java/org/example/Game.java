@@ -12,13 +12,13 @@ public class Game {
     private SnakesAndLaddersData snakesAndLaddersData;
     private Queue<Player> playersQueue;
     private final Logger log;
-    Game(GameConfig gameConfig){
+    Game(String gameId, GameConfig gameConfig){
         Integer diceCount = gameConfig.getDiceCount();
         Integer boardDimensions = gameConfig.getBoardDimensions();
         this.dice= new Dice(diceCount);
         this.snakesAndLaddersData  = new SnakesAndLaddersData(gameConfig.getSnakesAndLaddersMap());
         this.totalCells = boardDimensions*boardDimensions;
-        this.gameId = UUID.randomUUID().toString();
+        this.gameId = gameId;
         this.log=LoggerConfig.configure(this.gameId);
         this.playersQueue  = new LinkedList<>();
         for(String name: gameConfig.getPlayerNames()){
@@ -27,6 +27,10 @@ public class Game {
     }
     public String getGameId() {
         return gameId;
+    }
+
+    public void addPlayer(Player player){
+        playersQueue.offer(player);
     }
     void play() throws InterruptedException{
         while(!playersQueue.isEmpty()){

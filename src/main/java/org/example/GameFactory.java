@@ -5,9 +5,9 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
-public class GameFactor {
+public class GameFactory {
     private Map<String, Game> gameIdToGamesMap = new ConcurrentHashMap<>();
-    Logger log = Logger.getLogger(GameFactor.class.getName());
+    Logger log = Logger.getLogger(GameFactory.class.getName());
 
     public Game createGame(GameConfig gameConfig){
         String gameId = UUID.randomUUID().toString();
@@ -27,5 +27,9 @@ public class GameFactor {
 
         }
         game.addPlayer(player);
+    }
+
+    public void endGame(String gameId){
+        gameIdToGamesMap.remove(gameId);
     }
 }

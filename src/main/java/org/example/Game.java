@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.logging.Logger;
 
 public class Game {
@@ -12,6 +13,8 @@ public class Game {
     private SnakesAndLaddersData snakesAndLaddersData;
     private Queue<Player> playersQueue;
     private final Logger log;
+    GameStatus gameStatus;
+
     Game(String gameId, GameConfig gameConfig){
         Integer diceCount = gameConfig.getDiceCount();
         Integer boardDimensions = gameConfig.getBoardDimensions();
@@ -20,11 +23,14 @@ public class Game {
         this.totalCells = boardDimensions*boardDimensions;
         this.gameId = gameId;
         this.log=LoggerConfig.configure(this.gameId);
-        this.playersQueue  = new LinkedList<>();
+        this.playersQueue  = new ConcurrentLinkedQueue<>();
         for(String name: gameConfig.getPlayerNames()){
             playersQueue.offer(new Player(name,1));
         }
+
+        this.gameStatus = GameStatus.STARTING;
     }
+
     public String getGameId() {
         return gameId;
     }
@@ -32,7 +38,17 @@ public class Game {
     public void addPlayer(Player player){
         playersQueue.offer(player);
     }
+
+    public void setGameStatus(GameStatus gameStatus) {
+        this.gameStatus = gameStatus;
+    }
+
+    public GameStatus getGameStatus() {
+        return gameStatus;
+    }
+
     void play() throws InterruptedException{
+        setGameStatus(GameStatus.RUNNING);
         while(!playersQueue.isEmpty()){
             Player currentPlayer = playersQueue.poll();
             Integer currCell = currentPlayer.getCurrentCell();
@@ -83,6 +99,14 @@ public class Game {
             }
             playersQueue.offer(currentPlayer);
 
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                break;
+            }
+
         }
+        setGameStatus(GameStatus.FINISHED);
     }
 }

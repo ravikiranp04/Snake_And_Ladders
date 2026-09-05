@@ -110,28 +110,43 @@ public class Game {
     }
 
     Integer teleportWithSnakesAndLadders(Integer newCell, Player currentPlayer){
-        synchronized (snakesAndLaddersData){
-            //Checking for Snakes and Ladders teleporting (If -1, then no snakes or ladders exist at that cell)
-            Integer snakeOrLadderCell = snakesAndLaddersData.checkSnakeOrLadder(newCell);
-            while(snakeOrLadderCell!=-1){
-                // If lower than current cell, then it's a snake, else it's a ladder
-                if(snakeOrLadderCell<newCell){
-                    log.info("Snake: " +currentPlayer.getName()+" dropped to cell "+snakeOrLadderCell);
-                }
-                else{
-                    log.info("Ladder: " +currentPlayer.getName()+" jumped to cell "+snakeOrLadderCell);
-                }
-                newCell=snakeOrLadderCell;
-                snakeOrLadderCell = snakesAndLaddersData.checkSnakeOrLadder(newCell);
+//        synchronized (snakesAndLaddersData){
+//            //Checking for Snakes and Ladders teleporting (If -1, then no snakes or ladders exist at that cell)
+//            Integer snakeOrLadderCell = snakesAndLaddersData.checkSnakeOrLadder(newCell);
+//            while(snakeOrLadderCell!=-1){
+//                // If lower than current cell, then it's a snake, else it's a ladder
+//                if(snakeOrLadderCell<newCell){
+//                    log.info("Snake: " +currentPlayer.getName()+" dropped to cell "+snakeOrLadderCell);
+//                }
+//                else{
+//                    log.info("Ladder: " +currentPlayer.getName()+" jumped to cell "+snakeOrLadderCell);
+//                }
+//                newCell=snakeOrLadderCell;
+//                snakeOrLadderCell = snakesAndLaddersData.checkSnakeOrLadder(newCell);
+//            }
+//            return newCell;
+//        }
+        //Checking for Snakes and Ladders teleporting (If -1, then no snakes or ladders exist at that cell)
+        Integer snakeOrLadderCell = snakesAndLaddersData.checkSnakeOrLadder(newCell);
+        while(snakeOrLadderCell!=-1){
+            // If lower than current cell, then it's a snake, else it's a ladder
+            if(snakeOrLadderCell<newCell){
+                log.info("Snake: " +currentPlayer.getName()+" dropped to cell "+snakeOrLadderCell);
             }
-            return newCell;
+            else{
+                log.info("Ladder: " +currentPlayer.getName()+" jumped to cell "+snakeOrLadderCell);
+            }
+            newCell=snakeOrLadderCell;
+            snakeOrLadderCell = snakesAndLaddersData.checkSnakeOrLadder(newCell);
         }
+        return newCell;
 
     }
 
     public void addSnake(Integer fromCell, Integer toCell){
             if(gameStatus==GameStatus.FINISHED){
                 log.info("Cannot add snake. Game is not running.");
+                return;
             }
             if(fromCell<toCell){
                 log.info("Invalid Snake Coordinates");
@@ -173,6 +188,7 @@ public class Game {
     public void addLadder(Integer fromCell, Integer toCell){
         if(gameStatus==GameStatus.FINISHED){
             log.info("Cannot add Ladder. Game is not running.");
+            return;
         }
         if(fromCell>toCell){
             log.info("Invalid Ladder Coordinates");

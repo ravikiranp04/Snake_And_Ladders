@@ -5,7 +5,6 @@ import java.util.logging.Logger;
 
 public class Dice {
 
-    private static final Logger log = Logger.getLogger(Dice.class.getName());
 
     private Integer diceCount;
     private Random random = new Random();
@@ -17,9 +16,9 @@ public class Dice {
         return diceCount;
     }
 
-    Integer rollDice(Integer remainingCells){
+    Integer rollDice(Integer remainingCells, Game game){
         Integer movableCells=0, turns=0;
-
+        Logger log = game.getLogger();
         //Single dice (Single 6 gives another turn, 3 consecutive 6's loses turn and returns zero)
         if(diceCount==1){
             while(turns<3){

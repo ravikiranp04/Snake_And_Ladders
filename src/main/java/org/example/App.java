@@ -14,15 +14,14 @@ public class App {
     public static void main(String[] args) throws InterruptedException {
         String srcInputFolder = "src/main/java/org/example/";
         String[] inputFiles = {"input1.txt","input2.txt","input3.txt","input4.txt","input5.txt"};
-        Integer gameCount=15, fileIdx=0, inputFilesCount=5;
+        Integer gameCount=1, fileIdx=0, inputFilesCount=5;
 
         Integer dynamicPlayersCount = 3, dynamicPlayerIdx = -1;
         String[] dynamicPlayerList = {"Ramesh", "Suresh", "Vamsi"};
 
-        List<Player> playerNamesInBetweenSamples= new ArrayList<>();
-        for(String name: dynamicPlayerList){
-            playerNamesInBetweenSamples.add(new Player(name,1));
-        }
+        Integer[][] snakesToBeAdded = {{50,2},{10,33},{33,7},{3,4}};
+        Integer[][] laddersToBeAdded = {{35,73},{65,33},{93,7},{25,16}};
+
 
         AtomicInteger started = new AtomicInteger(0);
         AtomicInteger finished = new AtomicInteger(0);
@@ -30,6 +29,8 @@ public class App {
 
         ExecutorService executor = Executors.newFixedThreadPool(100);
         List<Future<?>> futures = new ArrayList<>();
+
+        //Running multiple games
         for(int i=1;i<=gameCount;i++){
             String inputFile = srcInputFolder+inputFiles[fileIdx];
             fileIdx=(fileIdx+1)%inputFilesCount;
@@ -40,14 +41,38 @@ public class App {
 
         Thread.sleep(20000);
 
+        //Simulating dynamic player entry into the games
         for(int i=1;i<=gameCount;i++){
             Integer gameNumber = i;
             dynamicPlayerIdx=(dynamicPlayerIdx+1)%dynamicPlayersCount;
-            Player dynamicPlayer = playerNamesInBetweenSamples.get(dynamicPlayerIdx);
+            Player dynamicPlayer = new Player(dynamicPlayerList[dynamicPlayerIdx],1);
             Game game = activeGames.get(gameNumber);
-
+            if(game==null){
+                log.info("Game: "+i+" finished. Hence player "+dynamicPlayer.getName()+" cannot be added");
+                continue;
+            }
             futures.add(executor.submit(()->addDynamicPlayer(dynamicPlayer,game)));
         }
+
+        Thread.sleep(10000);
+
+        //Simulating dynamic snake or ladders added into the game\
+        for(int i=1;i<=gameCount;i++){
+            Integer gameNumber = i;
+            Game game = activeGames.get(gameNumber);
+            if(game==null){
+                log.info("Game: "+i+" finished. Hence New Snake or Ladder cannot be added");
+                continue;
+            }
+            for(int j=0;j<4;j++){
+                Integer snakeStart = snakesToBeAdded[j][0], snakeEnd = snakesToBeAdded[j][1];
+                Integer ladderStart = laddersToBeAdded[j][0], ladderEnd = laddersToBeAdded[i][1];
+                futures.add(executor.submit(()->addDynamicSnake(snakeStart,snakeEnd,game)));
+                futures.add(executor.submit(()->addDynamicLadder(ladderStart,ladderEnd,game)));
+                Thread.sleep(1000);
+            }
+        }
+
 
         for (Future<?> f : futures) {
             try {
@@ -88,11 +113,17 @@ public class App {
 
     public static  void addDynamicPlayer (Player dynamicPlayer, Game game){
         if(game==null){
-            log.info("Game: "+game.getGameId()+" Finished");
+            log.info("Game Finished");
             return;
         }
         game.addPlayer(dynamicPlayer);
-        log.info("Added "+dynamicPlayer.getName()+" into gameId: "+ game.getGameId());
+    }
 
+    public static void addDynamicSnake(Integer fromCell, Integer toCell, Game game){
+        game.addSnake(fromCell,toCell);
+    }
+
+    public static void addDynamicLadder(Integer fromCell, Integer toCell, Game game){
+        game.addLadder(fromCell,toCell);
     }
 }

@@ -12,6 +12,11 @@ public class Game {
     private Dice dice;
     private SnakesAndLaddersData snakesAndLaddersData;
     private Queue<Player> playersQueue;
+
+    public Logger getLogger() {
+        return log;
+    }
+
     private final Logger log;
     GameStatus gameStatus;
 
@@ -37,6 +42,7 @@ public class Game {
 
     public void addPlayer(Player player){
         playersQueue.offer(player);
+        log.info("Added "+player.getName()+" into gameId: "+ gameId);
     }
 
     public void setGameStatus(GameStatus gameStatus) {
@@ -54,17 +60,17 @@ public class Game {
             Integer currCell = currentPlayer.getCurrentCell();
             log.info("-------------------------------------------------------");
 
-            log.info("Rolling Dice: "+currentPlayer.getName());
+            log.info("Rolling Dice: "+currentPlayer.getName()+" (Current Position: "+currCell+" ).");
             //rolling dice
             Integer remainingCells = totalCells-currCell;
-            Integer newMovement = dice.rollDice(remainingCells);
+            Integer newMovement = dice.rollDice(remainingCells,this);
 
             //computing new cell
             Integer newCell = currCell+ newMovement;
 
             //Player wins game
             if(checkPlayerWins(newCell)){
-                log.info(currentPlayer.getName()+" rolled a "+newMovement+" wins the game");
+                log.info(currentPlayer.getName()+" rolled a "+newMovement+" and wins the game");
                 currentPlayer.setWinStatus(true);
                 break;
             }
@@ -100,20 +106,68 @@ public class Game {
     }
 
     Integer teleportWithSnakesAndLadders(Integer newCell, Player currentPlayer){
+        synchronized (snakesAndLaddersData){
+            //Checking for Snakes and Ladders teleporting (If -1, then no snakes or ladders exist at that cell)
+            Integer snakeOrLadderCell = snakesAndLaddersData.checkSnakeOrLadder(newCell);
+            while(snakeOrLadderCell!=-1){
+                // If lower than current cell, then it's a snake, else it's a ladder
+                if(snakeOrLadderCell<newCell){
+                    log.info("Snake: " +currentPlayer.getName()+" dropped to cell "+snakeOrLadderCell);
+                }
+                else{
+                    log.info("Ladder: " +currentPlayer.getName()+" jumped to cell "+snakeOrLadderCell);
+                }
+                newCell=snakeOrLadderCell;
+                snakeOrLadderCell = snakesAndLaddersData.checkSnakeOrLadder(newCell);
+            }
+            return newCell;
+        }
 
-        //Checking for Snakes and Ladders teleporting (If -1, then no snakes or ladders exist at that cell)
-        Integer snakeOrLadderCell = snakesAndLaddersData.checkSnakeOrLadder(newCell);
-        while(snakeOrLadderCell!=-1){
-            // If lower than current cell, then it's a snake, else it's a ladder
-            if(snakeOrLadderCell<newCell){
-                log.info("Snake: " +currentPlayer.getName()+" dropped to cell "+snakeOrLadderCell);
+    }
+
+    public void addSnake(Integer fromCell, Integer toCell){
+            synchronized (snakesAndLaddersData){
+                snakesAndLaddersData.getSnakesAndLaddersMap().put(fromCell,toCell);
+                if(fromCell<toCell){
+                    log.info("Invalid Snake Coordinates");
+                    return;
+                }
+                Integer presentCell = snakesAndLaddersData.getSnakesAndLaddersMap().get(fromCell);
+                if(presentCell==null){
+                    snakesAndLaddersData.getSnakesAndLaddersMap().put(fromCell,toCell);
+                    return;
+                }
+
+                if(fromCell<presentCell){
+                    log.info("Ladder already exists at the cell, Snake cannot be added");
+                }
+                else{
+                    log.info("Snake already exists. Hence New Snake cannot be added");
+                }
+            }
+
+    }
+
+    public void addLadder(Integer fromCell, Integer toCell){
+        synchronized (snakesAndLaddersData){
+            snakesAndLaddersData.getSnakesAndLaddersMap().put(fromCell,toCell);
+            if(fromCell>toCell){
+                log.info("Invalid Ladder Coordinates");
+                return;
+            }
+            Integer presentCell = snakesAndLaddersData.getSnakesAndLaddersMap().get(fromCell);
+            if(presentCell==null){
+                snakesAndLaddersData.getSnakesAndLaddersMap().put(fromCell,toCell);
+                return;
+            }
+
+            if(fromCell<presentCell){
+                log.info("Ladder already exists at the cell, Ladder cannot be added");
             }
             else{
-                log.info("Ladder: " +currentPlayer.getName()+" jumped to cell "+snakeOrLadderCell);
+                log.info("Snake already exists. Hence New Ladder cannot be added");
             }
-            newCell=snakeOrLadderCell;
-            snakeOrLadderCell = snakesAndLaddersData.checkSnakeOrLadder(newCell);
         }
-        return newCell;
+
     }
 }

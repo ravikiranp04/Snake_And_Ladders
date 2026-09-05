@@ -19,8 +19,8 @@ public class App {
         Integer dynamicPlayersCount = 3, dynamicPlayerIdx = -1;
         String[] dynamicPlayerList = {"Ramesh", "Suresh", "Vamsi"};
 
-        Integer[][] snakesToBeAdded = {{50,2},{10,33},{33,7},{3,4}};
-        Integer[][] laddersToBeAdded = {{35,73},{65,33},{93,7},{25,16}};
+        Integer[][] snakesToBeAdded = {{50,2},{10,5},{33,7},{3,4}};
+        Integer[][] laddersToBeAdded = {{35,73},{65,67},{93,95},{25,16}};
 
 
         AtomicInteger started = new AtomicInteger(0);
@@ -47,10 +47,7 @@ public class App {
             dynamicPlayerIdx=(dynamicPlayerIdx+1)%dynamicPlayersCount;
             Player dynamicPlayer = new Player(dynamicPlayerList[dynamicPlayerIdx],1);
             Game game = activeGames.get(gameNumber);
-            if(game==null){
-                log.info("Game: "+i+" finished. Hence player "+dynamicPlayer.getName()+" cannot be added");
-                continue;
-            }
+
             futures.add(executor.submit(()->addDynamicPlayer(dynamicPlayer,game)));
         }
 
@@ -60,13 +57,9 @@ public class App {
         for(int i=1;i<=gameCount;i++){
             Integer gameNumber = i;
             Game game = activeGames.get(gameNumber);
-            if(game==null){
-                log.info("Game: "+i+" finished. Hence New Snake or Ladder cannot be added");
-                continue;
-            }
             for(int j=0;j<4;j++){
                 Integer snakeStart = snakesToBeAdded[j][0], snakeEnd = snakesToBeAdded[j][1];
-                Integer ladderStart = laddersToBeAdded[j][0], ladderEnd = laddersToBeAdded[i][1];
+                Integer ladderStart = laddersToBeAdded[j][0], ladderEnd = laddersToBeAdded[j][1];
                 futures.add(executor.submit(()->addDynamicSnake(snakeStart,snakeEnd,game)));
                 futures.add(executor.submit(()->addDynamicLadder(ladderStart,ladderEnd,game)));
                 Thread.sleep(1000);
@@ -112,10 +105,7 @@ public class App {
     }
 
     public static  void addDynamicPlayer (Player dynamicPlayer, Game game){
-        if(game==null){
-            log.info("Game Finished");
-            return;
-        }
+
         game.addPlayer(dynamicPlayer);
     }
 

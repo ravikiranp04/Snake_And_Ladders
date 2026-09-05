@@ -24,7 +24,7 @@ public class GameFactory {
         Game game = gameIdToGamesMap.get(gameId);
         if(game == null){
             log.info("Game doesn't exist");
-
+            return;
         }
         game.addPlayer(player);
     }

@@ -14,7 +14,7 @@ public class App {
     public static void main(String[] args) throws InterruptedException {
         String srcInputFolder = "src/main/java/org/example/";
         String[] inputFiles = {"input1.txt","input2.txt","input3.txt","input4.txt","input5.txt"};
-        Integer gameCount=20, fileIdx=0, inputFilesCount=5;
+        Integer gameCount=15, fileIdx=0, inputFilesCount=5;
 
         Integer dynamicPlayersCount = 3, dynamicPlayerIdx = -1;
         String[] dynamicPlayerList = {"Ramesh", "Suresh", "Vamsi"};

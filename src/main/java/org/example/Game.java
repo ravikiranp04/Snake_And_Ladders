@@ -62,41 +62,26 @@ public class Game {
             //computing new cell
             Integer newCell = currCell+ newMovement;
 
+            //Player wins game
+            if(checkPlayerWins(newCell)){
+                log.info(currentPlayer.getName()+" rolled a "+newMovement+" wins the game");
+                currentPlayer.setWinStatus(true);
+                break;
+            }
+
             log.info(currentPlayer.getName()+" rolled a "+ newMovement+" and moved from "+ currCell+" to "+newCell);
 
 
             // If next cell greater than total cells or player looses turn due to 3 consecutive 6's
             // Roll dice returns zero, if three consecutive 6's occured
             if(newCell.equals(currCell)){
-//                log.info(currentPlayer.getName()+" rolled a "+ newMovement+" and moved from "+ currCell+" to "+currCell);
                 playersQueue.offer(currentPlayer);
                 continue;
             }
 
-//            log.info(currentPlayer.getName()+" rolled a "+ newMovement+" and moved from "+ currCell+" to "+newCell);
-
-            //Checking for Snakes and Ladders teleporting (If -1, then no snakes or ladders exist at that cell)
-            Integer snakeOrLadderCell = snakesAndLaddersData.checkSnakeOrLadder(newCell);
-            while(snakeOrLadderCell!=-1){
-                // If lower than current cell, then it's a snake, else it's a ladder
-                if(snakeOrLadderCell<newCell){
-                    log.info("Snake: " +currentPlayer.getName()+" dropped to cell "+snakeOrLadderCell);
-                }
-                else{
-                    log.info("Ladder: " +currentPlayer.getName()+" jumped to cell "+snakeOrLadderCell);
-                }
-                newCell=snakeOrLadderCell;
-                snakeOrLadderCell = snakesAndLaddersData.checkSnakeOrLadder(newCell);
-            }
+            newCell = teleportWithSnakesAndLadders(newCell, currentPlayer);
 
             currentPlayer.moveToCell(newCell);
-
-            //Player wins game
-            if(newCell.equals(totalCells)){
-                log.info(currentPlayer.getName()+" wins the game");
-                currentPlayer.setWinStatus(true);
-                break;
-            }
             playersQueue.offer(currentPlayer);
 
             try {
@@ -108,5 +93,27 @@ public class Game {
 
         }
         setGameStatus(GameStatus.FINISHED);
+    }
+
+    boolean checkPlayerWins(Integer newCell){
+        return newCell.equals(totalCells);
+    }
+
+    Integer teleportWithSnakesAndLadders(Integer newCell, Player currentPlayer){
+
+        //Checking for Snakes and Ladders teleporting (If -1, then no snakes or ladders exist at that cell)
+        Integer snakeOrLadderCell = snakesAndLaddersData.checkSnakeOrLadder(newCell);
+        while(snakeOrLadderCell!=-1){
+            // If lower than current cell, then it's a snake, else it's a ladder
+            if(snakeOrLadderCell<newCell){
+                log.info("Snake: " +currentPlayer.getName()+" dropped to cell "+snakeOrLadderCell);
+            }
+            else{
+                log.info("Ladder: " +currentPlayer.getName()+" jumped to cell "+snakeOrLadderCell);
+            }
+            newCell=snakeOrLadderCell;
+            snakeOrLadderCell = snakesAndLaddersData.checkSnakeOrLadder(newCell);
+        }
+        return newCell;
     }
 }

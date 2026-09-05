@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -13,38 +13,38 @@ import java.util.logging.SimpleFormatter;
 
 public class LoggerConfig {
 
-    private static boolean configured = false;
 
-    public static void configure() {
-
-        if (configured) {
-            return;
-        }
+    public static Logger configure(String gameId) {
 
         try {
-            Path logDirectory = Paths.get("logs");
+
+            String date = LocalDate.now()
+                    .format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            Path logDirectory = Paths.get("logs",date);
             Files.createDirectories(logDirectory);
 
-            String timestamp = LocalDateTime.now()
-                    .format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
+            Path logPath = logDirectory.resolve(
+                    date + "_" + gameId + ".log"
+            );
 
-            String logFile = "logs/app-" + timestamp + ".log";
+            Logger logger = Logger.getLogger("Game-" + gameId);
 
-            Logger rootLogger = Logger.getLogger("");
+            logger.setUseParentHandlers(false);
+            logger.setLevel(Level.INFO);
 
             FileHandler fileHandler =
-                    new FileHandler(logFile, false);
+                    new FileHandler(logPath.toString(), false);
 
             fileHandler.setFormatter(new SimpleFormatter());
 
-            rootLogger.addHandler(fileHandler);
-            rootLogger.setLevel(Level.INFO);
-
-            configured = true;
-
+            logger.addHandler(fileHandler);
+            return logger;
         } catch (IOException e) {
-            System.err.println("Failed to configure logging: "
-                    + e.getMessage());
+            throw new RuntimeException(
+                    "Failed to configure logging for Game-" + gameId,
+                    e
+            );
         }
+
     }
 }

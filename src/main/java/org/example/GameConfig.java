@@ -3,10 +3,11 @@ package org.example;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 public class GameConfig {
-    Map<Integer,Integer> snakesAndLaddersMap = new HashMap<>();
+    Map<Integer,Integer> snakesAndLaddersMap = new ConcurrentHashMap<>();
     List<String> playerNames = new ArrayList<>();
     Integer diceCount;
     Integer boardDimensions;

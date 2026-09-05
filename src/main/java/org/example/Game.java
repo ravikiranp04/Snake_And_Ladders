@@ -133,25 +133,40 @@ public class Game {
             if(gameStatus==GameStatus.FINISHED){
                 log.info("Cannot add snake. Game is not running.");
             }
-            synchronized (snakesAndLaddersData){
-                if(fromCell<toCell){
-                    log.info("Invalid Snake Coordinates");
-                    return;
-                }
-                Integer presentCell = snakesAndLaddersData.getSnakesAndLaddersMap().get(fromCell);
-                if(presentCell==null){
-                    snakesAndLaddersData.getSnakesAndLaddersMap().put(fromCell,toCell);
-                    log.info("Snake added at cell "+fromCell);
-                    return;
-                }
-
-                if(fromCell<presentCell){
-                    log.info("Ladder already exists at the cell "+fromCell+", Snake cannot be added");
-                }
-                else{
-                    log.info("Snake already exists at the cell "+fromCell+", Hence New Snake cannot be added");
-                }
+            if(fromCell<toCell){
+                log.info("Invalid Snake Coordinates");
+                return;
             }
+//            synchronized (snakesAndLaddersData){
+//
+//                Integer presentCell = snakesAndLaddersData.getSnakesAndLaddersMap().get(fromCell);
+//                if(presentCell==null){
+//                    snakesAndLaddersData.getSnakesAndLaddersMap().put(fromCell,toCell);
+//                    log.info("Snake added at cell "+fromCell);
+//                    return;
+//                }
+//
+//                if(fromCell<presentCell){
+//                    log.info("Ladder already exists at the cell "+fromCell+", Snake cannot be added");
+//                }
+//                else{
+//                    log.info("Snake already exists at the cell "+fromCell+", Hence New Snake cannot be added");
+//                }
+//            }
+
+        Integer presentCell = snakesAndLaddersData.getSnakesAndLaddersMap().putIfAbsent(fromCell,toCell);
+
+        if(presentCell==null){
+            log.info("Snake added at cell "+fromCell);
+            return;
+        }
+
+        if(fromCell<presentCell){
+            log.info("Ladder already exists at the cell "+fromCell+", Snake cannot be added");
+        }
+        else{
+            log.info("Snake already exists at the cell "+fromCell+", Hence New Snake cannot be added");
+        }
 
     }
 
@@ -159,25 +174,38 @@ public class Game {
         if(gameStatus==GameStatus.FINISHED){
             log.info("Cannot add Ladder. Game is not running.");
         }
-        synchronized (snakesAndLaddersData){
-            if(fromCell>toCell){
-                log.info("Invalid Ladder Coordinates");
-                return;
-            }
-            Integer presentCell = snakesAndLaddersData.getSnakesAndLaddersMap().get(fromCell);
-            if(presentCell==null){
-                snakesAndLaddersData.getSnakesAndLaddersMap().put(fromCell,toCell);
-                log.info("Ladder added at cell "+fromCell);
-                return;
-            }
+        if(fromCell>toCell){
+            log.info("Invalid Ladder Coordinates");
+            return;
+        }
+//        synchronized (snakesAndLaddersData){
+//
+//            Integer presentCell = snakesAndLaddersData.getSnakesAndLaddersMap().get(fromCell);
+//            if(presentCell==null){
+//                snakesAndLaddersData.getSnakesAndLaddersMap().put(fromCell,toCell);
+//                log.info("Ladder added at cell "+fromCell);
+//                return;
+//            }
+//
+//            if(fromCell<presentCell){
+//                log.info("Ladder already exists at the cell "+fromCell+", Ladder cannot be added");
+//            }
+//            else{
+//                log.info("Snake already exists at the cell "+fromCell+", Hence New Ladder cannot be added");
+//            }
+//        }
 
-            if(fromCell<presentCell){
-                log.info("Ladder already exists at the cell "+fromCell+", Ladder cannot be added");
-            }
-            else{
-                log.info("Snake already exists at the cell "+fromCell+", Hence New Ladder cannot be added");
-            }
+        Integer presentCell = snakesAndLaddersData.getSnakesAndLaddersMap().putIfAbsent(fromCell,toCell);
+        if(presentCell==null){
+            log.info("Ladder added at cell "+fromCell);
+            return;
         }
 
+        if(fromCell<presentCell){
+            log.info("Ladder already exists at the cell "+fromCell+", Ladder cannot be added");
+        }
+        else{
+            log.info("Snake already exists at the cell "+fromCell+", Hence New Ladder cannot be added");
+        }
     }
 }

@@ -45,18 +45,6 @@ public class Dice {
                 return 0;
             }
         }
-        //Multiple dice -> Adds up the movableCells sum and returns
-//        else{
-//            while(turns<diceCount){
-//                Integer randNum = random.nextInt(6)+1;
-//                log.info("Rolled a "+randNum);
-//                movableCells+=randNum;
-//                turns++;
-//            }
-//            if(movableCells>remainingCells){
-//                movableCells=0;
-//            }
-//        }
         return movableCells;
     }
 }

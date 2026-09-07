@@ -53,7 +53,7 @@ public class App {
 
         Thread.sleep(10000);
 
-        //Simulating dynamic snake or ladders added into the game\
+        //Simulating dynamic snake or ladders added into the game
         for(int i=1;i<=gameCount;i++){
             Integer gameNumber = i;
             Game game = activeGames.get(gameNumber);
@@ -87,13 +87,14 @@ public class App {
         try{
             GameConfig gameConfig = new GameConfig(inputFile);
             Game game = gameFactory.createGame(gameConfig);
+            // Active Games map is used to  track current running game with game Number temporarily.
             activeGames.put(gameNumber,game);
 
             log.info("Game with game Id: "+ game.getGameId()+ " simulating.");
             started.incrementAndGet();
             game.play();
 
-            gameFactory.endGame(game.getGameId());
+
             activeGames.remove(gameNumber);
             finished.incrementAndGet();
         } catch (InterruptedException e) {

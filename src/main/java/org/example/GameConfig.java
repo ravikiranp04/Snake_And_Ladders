@@ -34,11 +34,13 @@ public class GameConfig {
                 return;
             }
 
-            //Checking Snakes Data
+            //Input Snakes Count
             Integer snakesCount=0;
             if(fileScanner.hasNextInt()){
                 snakesCount= fileScanner.nextInt();
             }
+
+            //Input Snakes Coordinates
             Integer currSnakesCount =0;
             while(currSnakesCount<snakesCount && fileScanner.hasNextInt()){
                 int head = fileScanner.nextInt();
@@ -51,11 +53,13 @@ public class GameConfig {
                 this.snakesAndLaddersMap.put(head,tail);
             }
 
-            //Checking Ladders Data
+            //Input Ladders Count
             Integer laddersCount =0;
             if(fileScanner.hasNextInt()){
                 laddersCount= fileScanner.nextInt();
             }
+
+            // Input Ladders Coordinates
             Integer currLaddersCount =0;
             while(currLaddersCount<laddersCount && fileScanner.hasNextInt()){
                 Integer bottom = fileScanner.nextInt();
@@ -78,10 +82,9 @@ public class GameConfig {
                 return;
             }
             fileScanner.nextLine();
+
             //Player Names Input
             Integer currPlayers=0;
-
-            //Player names input
             while(currPlayers<playersCount && fileScanner.hasNextLine()){
                 this.playerNames.add(fileScanner.nextLine());
                 currPlayers++;
@@ -91,6 +94,7 @@ public class GameConfig {
                 log.info("Insufficient Players Data");
                 return;
             }
+
         } catch (FileNotFoundException e){
             log.info("File Not found");
         }

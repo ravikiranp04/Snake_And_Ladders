@@ -87,6 +87,8 @@ public class Game {
             log.info("Invalid Snake Coordinates");
             return;
         }
+
+        // If the current snake coordinates to be added are already present in the board, then presentCell will have the toCell of the snake
         Integer presentCell = snakesAndLaddersData.getSnakesAndLaddersMap().putIfAbsent(fromCell, toCell);
 
         if (presentCell == null) {
@@ -108,6 +110,7 @@ public class Game {
             log.info("Invalid Ladder Coordinates");
             return;
         }
+        // If the current ladder coordinates to be added are already present in the board, then presentCell will have the toCell of the ladder
         Integer presentCell = snakesAndLaddersData.getSnakesAndLaddersMap().putIfAbsent(fromCell, toCell);
         if (presentCell == null) {
             log.info("Ladder added at cell " + fromCell);

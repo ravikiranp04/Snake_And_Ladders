@@ -27,7 +27,7 @@ public class App {
         AtomicInteger finished = new AtomicInteger(0);
 
 
-        ExecutorService executor = Executors.newFixedThreadPool(100);
+        ExecutorService executor = Executors.newFixedThreadPool(gameCount);
         List<Future<?>> futures = new ArrayList<>();
 
         //Running multiple games
@@ -48,6 +48,11 @@ public class App {
             Player dynamicPlayer = new Player(dynamicPlayerList[dynamicPlayerIdx],1);
             Game game = activeGames.get(gameNumber);
 
+            if(game==null){
+                log.info("Game Already Finished");
+                continue;
+            }
+
             futures.add(executor.submit(()->addDynamicPlayer(dynamicPlayer,game)));
         }
 
@@ -57,6 +62,11 @@ public class App {
         for(int i=1;i<=gameCount;i++){
             Integer gameNumber = i;
             Game game = activeGames.get(gameNumber);
+
+            if(game==null){
+                log.info("Game Already Finished");
+                continue;
+            }
             for(int j=0;j<4;j++){
                 Integer snakeStart = snakesToBeAdded[j][0], snakeEnd = snakesToBeAdded[j][1];
                 Integer ladderStart = laddersToBeAdded[j][0], ladderEnd = laddersToBeAdded[j][1];

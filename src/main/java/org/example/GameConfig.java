@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
-public class GameConfig {
+public class GameConfig  {
     Map<Integer,Integer> snakesAndLaddersMap = new ConcurrentHashMap<>();
     List<String> playerNames = new ArrayList<>();
     Integer diceCount;
@@ -22,16 +22,18 @@ public class GameConfig {
                 this.boardDimensions= fileScanner.nextInt();
             }
             else{
-                log.info("Empty Board Dimensions");
-                return;
+                throw new InputMismatchException("Empty Board Dimensions");
             }
             //Input for Dice count
             if(fileScanner.hasNextInt()){
                 this.diceCount= fileScanner.nextInt();
             }
             else{
-                log.info("Empty Dice Count");
-                return;
+                throw new InputMismatchException("Empty Dice Count");
+            }
+
+            if(diceCount!=1){
+                throw new InputMismatchException("Invalid Dice Count");
             }
 
             //Input Snakes Count
@@ -46,8 +48,7 @@ public class GameConfig {
                 int head = fileScanner.nextInt();
                 int tail = fileScanner.nextInt();
                 if(head<=tail){
-                    log.info("Unsupported Snakes coordinates: "+head +" <= "+tail);
-                    return;
+                    throw new InputMismatchException("Unsupported Snakes coordinates: "+head +" <= "+tail);
                 }
                 currSnakesCount++;
                 this.snakesAndLaddersMap.put(head,tail);
@@ -65,8 +66,7 @@ public class GameConfig {
                 Integer bottom = fileScanner.nextInt();
                 Integer top = fileScanner.nextInt();
                 if(top<=bottom){
-                    log.info("Unsupported Ladder coordinates: "+top +" <= "+bottom);
-                    return;
+                    throw new InputMismatchException("Unsupported Ladder coordinates: "+top +" <= "+bottom);
                 }
                 currLaddersCount++;
                 this.snakesAndLaddersMap.put(bottom,top);
@@ -78,8 +78,7 @@ public class GameConfig {
                 playersCount= fileScanner.nextInt();
             }
             else{
-                log.info("Empty Players Count");
-                return;
+                throw new InputMismatchException("Empty Players Count");
             }
             fileScanner.nextLine();
 
@@ -91,12 +90,11 @@ public class GameConfig {
             }
 
             if(currPlayers<playersCount){
-                log.info("Insufficient Players Data");
-                return;
+                throw new InputMismatchException("Insufficient Players Data");
             }
 
-        } catch (FileNotFoundException e){
-            log.info("File Not found");
+        } catch (FileNotFoundException | InputMismatchException e){
+            throw new RuntimeException(e);
         }
     }
 

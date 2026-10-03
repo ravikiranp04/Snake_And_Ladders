@@ -1,107 +1,130 @@
 package org.example;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.*;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
 public class App {
-    public static void main(String[] args) {
-        LoggerConfig.configure();
-        Logger log = Logger.getLogger(App.class.getName());
-        Map<Integer,Integer> snakesAndLaddersMap = new HashMap<>();
-        String inputFileName = "src/main/java/org/example/input.txt";
-        File inputFile = new File(inputFileName);
-        try(Scanner fileScanner = new Scanner(inputFile)){
-            Integer diceCount , boardDimensions;
-            // Input for board Dimension
-            if(fileScanner.hasNextInt()){
-                boardDimensions= fileScanner.nextInt();
-            }
-            else{
-                log.info("Empty Board Dimensions");
-                return;
-            }
-            //Input for Dice count
-            if(fileScanner.hasNextInt()){
-                diceCount= fileScanner.nextInt();
-            }
-            else{
-                log.info("Empty Dice Count");
-                return;
-            }
+    private static final Logger log = Logger.getLogger(App.class.getName());
+    private static final GameFactory gameFactory = new GameFactory();
+    private static Map<Integer, Game> activeGames= new ConcurrentHashMap<>();
+    public static void main(String[] args) throws InterruptedException {
+        String srcInputFolder = "src/main/java/org/example/";
+        String[] inputFiles = {"input1.txt","input2.txt","input3.txt","input4.txt","input5.txt"};
+        Integer gameCount=1, fileIdx=0, inputFilesCount=5;
 
-            //Checking Snakes Data
-            Integer snakesCount=0;
-            if(fileScanner.hasNextInt()){
-                snakesCount= fileScanner.nextInt();
-            }
-            Integer currSnakesCount =0;
-            while(currSnakesCount<snakesCount && fileScanner.hasNextInt()){
-                int head = fileScanner.nextInt();
-                int tail = fileScanner.nextInt();
-                if(head<=tail){
-                    log.info("Unsupported Snakes coordinates: "+head +" <= "+tail);
-                    return;
-                }
-                currSnakesCount++;
-                snakesAndLaddersMap.put(head,tail);
-            }
+        Integer dynamicPlayersCount = 3, dynamicPlayerIdx = -1;
+        String[] dynamicPlayerList = {"Ramesh", "Suresh", "Vamsi"};
 
-            //Checking Ladders Data
-            Integer laddersCount =0;
-            if(fileScanner.hasNextInt()){
-                laddersCount= fileScanner.nextInt();
-            }
-            Integer currLaddersCount =0;
-            while(currLaddersCount<laddersCount && fileScanner.hasNextInt()){
-                Integer bottom = fileScanner.nextInt();
-                Integer top = fileScanner.nextInt();
-                if(top<=bottom){
-                    log.info("Unsupported Ladder coordinates: "+top +" <= "+bottom);
-                    return;
-                }
-                currLaddersCount++;
-                snakesAndLaddersMap.put(bottom,top);
-            }
-
-            // Players Count Input
-            Integer playersCount=0;
-            if(fileScanner.hasNextInt()){
-                playersCount= fileScanner.nextInt();
-            }
-            else{
-                log.info("Empty Players Count");
-                return;
-            }
-            fileScanner.nextLine();
-            //Player Names Input
-            List<String> playerNames = new ArrayList<>();
-            Integer currPlayers=0;
-
-            //Player names input
-            while(currPlayers<playersCount && fileScanner.hasNextLine()){
-                playerNames.add(fileScanner.nextLine());
-                currPlayers++;
-            }
-
-            if(currPlayers<playersCount){
-                log.info("Insufficient Players Data");
-                return;
-            }
-
-            //Playing on a board
-            Game game1 = new Game(diceCount,boardDimensions, snakesAndLaddersMap, playerNames);
-            game1.play();
+        Integer[][] snakesToBeAdded = {{50,2},{10,5},{33,7},{3,4}};
+        Integer[][] laddersToBeAdded = {{35,73},{65,67},{93,95},{25,16}};
 
 
-            Game game2 = new Game(diceCount,boardDimensions, snakesAndLaddersMap, playerNames);
-            game2.play();
-            log.info("Game Finished");
+        AtomicInteger started = new AtomicInteger(0);
+        AtomicInteger finished = new AtomicInteger(0);
 
-        } catch (FileNotFoundException e){
-            log.info("File Not found");
+
+        ExecutorService executor = Executors.newFixedThreadPool(gameCount);
+        List<Future<?>> futures = new ArrayList<>();
+
+        //Running multiple games
+        for(int i=1;i<=gameCount;i++){
+            String inputFile = srcInputFolder+inputFiles[fileIdx];
+            fileIdx=(fileIdx+1)%inputFilesCount;
+            Integer gameNumber = i;
+
+            futures.add(executor.submit(()-> simulateGame(inputFile,gameNumber,started,finished)));
         }
+
+        Thread.sleep(20000);
+
+        //Simulating dynamic player entry into the games
+        for(int i=1;i<=gameCount;i++){
+            Integer gameNumber = i;
+            dynamicPlayerIdx=(dynamicPlayerIdx+1)%dynamicPlayersCount;
+            Player dynamicPlayer = new Player(dynamicPlayerList[dynamicPlayerIdx],1);
+            Game game = activeGames.get(gameNumber);
+
+            if(game==null){
+                log.info("Game Already Finished");
+                continue;
+            }
+
+            futures.add(executor.submit(()->addDynamicPlayer(dynamicPlayer,game)));
+        }
+
+        Thread.sleep(10000);
+
+        //Simulating dynamic snake or ladders added into the game
+        for(int i=1;i<=gameCount;i++){
+            Integer gameNumber = i;
+            Game game = activeGames.get(gameNumber);
+
+            if(game==null){
+                log.info("Game Already Finished");
+                continue;
+            }
+            for(int j=0;j<4;j++){
+                Integer snakeStart = snakesToBeAdded[j][0], snakeEnd = snakesToBeAdded[j][1];
+                Integer ladderStart = laddersToBeAdded[j][0], ladderEnd = laddersToBeAdded[j][1];
+                futures.add(executor.submit(()->addDynamicSnake(snakeStart,snakeEnd,game)));
+                futures.add(executor.submit(()->addDynamicLadder(ladderStart,ladderEnd,game)));
+                Thread.sleep(1000);
+            }
+        }
+
+
+        for (Future<?> f : futures) {
+            try {
+                f.get();
+            } catch (ExecutionException e) {
+                log.warning("A Game simulation thread failed: " + e.getCause());
+            }
+        }
+
+        executor.shutdown();
+        executor.awaitTermination(30, TimeUnit.SECONDS);
+
+        log.info("=========================================");
+        log.info("Simulation complete. Games Started: " + started.get() + ", finished: " + finished.get());
+
+    }
+
+    public static void simulateGame(String inputFile, Integer gameNumber, AtomicInteger started, AtomicInteger finished){
+        try{
+            GameConfig gameConfig = new GameConfig(inputFile);
+            Game game = gameFactory.createGame(gameConfig);
+            // Active Games map is used to  track current running game with game Number temporarily.
+            activeGames.put(gameNumber,game);
+
+            log.info("Game with game Id: "+ game.getGameId()+ " simulating.");
+            started.incrementAndGet();
+            game.play();
+
+
+            activeGames.remove(gameNumber);
+            finished.incrementAndGet();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            log.warning("Game-" + gameNumber + " interrupted.");
+        } catch (Exception e) {
+            log.log(Level.SEVERE, "Game-" + gameNumber + " simulation failed",e);
+        }
+    }
+
+    public static  void addDynamicPlayer (Player dynamicPlayer, Game game){
+
+        game.addPlayer(dynamicPlayer);
+    }
+
+    public static void addDynamicSnake(Integer fromCell, Integer toCell, Game game){
+        game.addSnake(fromCell,toCell);
+    }
+
+    public static void addDynamicLadder(Integer fromCell, Integer toCell, Game game){
+        game.addLadder(fromCell,toCell);
     }
 }

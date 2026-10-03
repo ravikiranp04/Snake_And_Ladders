@@ -5,7 +5,6 @@ import java.util.logging.Logger;
 
 public class Dice {
 
-    private static final Logger log = Logger.getLogger(Dice.class.getName());
 
     private Integer diceCount;
     private Random random = new Random();
@@ -17,9 +16,9 @@ public class Dice {
         return diceCount;
     }
 
-    Integer rollDice(Integer remainingCells){
+    Integer rollDice(Integer remainingCells, Game game){
         Integer movableCells=0, turns=0;
-
+        Logger log = game.getLogger();
         //Single dice (Single 6 gives another turn, 3 consecutive 6's loses turn and returns zero)
         if(diceCount==1){
             while(turns<3){
@@ -30,7 +29,6 @@ public class Dice {
                 if(randNum>remainingCells){
                     return movableCells;
                 }
-
 
                 movableCells+=randNum;
                 remainingCells-=randNum;
@@ -45,13 +43,6 @@ public class Dice {
             if(turns==3){
                 log.info("Lost turn due to 3 consecutive 6's");
                 return 0;
-            }
-        }
-        //Multiple dice -> Adds up the movableCells sum and returns
-        else{
-            while(turns<diceCount){
-                Integer randNum = random.nextInt(6)+1;
-                movableCells+=randNum;
             }
         }
         return movableCells;

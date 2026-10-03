@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.logging.Logger;
 
 public class Game {
-    private GameState state;
+    private volatile GameState state;
 
     private final GameState runningState;
     private final GameState finishedState;
@@ -25,6 +25,7 @@ public class Game {
     }
 
     private final Logger log;
+
 
     Game(String gameId, GameConfig gameConfig) {
         Integer diceCount = gameConfig.getDiceCount();
@@ -62,7 +63,10 @@ public class Game {
     }
 
     public void addPlayer(Player player) {
-        state.addPlayer(player);
+        synchronized (state){
+            state.addPlayer(player);
+        }
+
     }
 
     public void addSnake(Integer fromCell, Integer toCell) {
@@ -140,9 +144,12 @@ public class Game {
 
             //Player wins game
             if (checkPlayerWins(newCell)) {
-                log.info(currentPlayer.getName() + " rolled a " + newMovement + " and wins the game");
-                currentPlayer.setWinStatus(true);
-                break;
+                synchronized (state){
+                    log.info(currentPlayer.getName() + " rolled a " + newMovement + " and wins the game");
+                    currentPlayer.setWinStatus(true);
+                    setGameState(finishedState);
+                    break;
+                }
             }
 
             log.info(currentPlayer.getName() + " rolled a " + newMovement + " and moved from " + currCell + " to " + newCell);
@@ -164,7 +171,7 @@ public class Game {
             Thread.sleep(2000);
 
         }
-        setGameState(finishedState);
+
     }
 
     boolean checkPlayerWins(Integer newCell) {
